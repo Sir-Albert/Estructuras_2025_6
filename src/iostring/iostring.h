@@ -8,6 +8,7 @@
 
 void clear_buffer(void);
 void remover_salto(char *cadena);
+unsigned int inputEnteroSinSigno(char *mensaje,unsigned int *valor);
 int inputEntero(char *mensaje,int *valor);
 int inputFloat(char *mensaje,float *valor);
 int inputDouble(char *mensaje,double *valor);

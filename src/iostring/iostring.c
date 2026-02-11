@@ -13,6 +13,16 @@ void remover_salto(char *cadena)
 	while(cadena[++i]!='\n' && cadena[i]!='\0');
 	cadena[i] = '\0';
 }
+
+unsigned int inputEnteroSinSigno(char *mensaje,unsigned int *valor)
+{
+	int resultado;
+	printf("%s",mensaje);
+	resultado = scanf("%u",valor);
+	clear_buffer();
+	return resultado;
+}
+
 int inputEntero(char *mensaje,int *valor)
 {
 	int resultado;
