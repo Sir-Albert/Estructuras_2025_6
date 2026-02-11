@@ -99,6 +99,14 @@ char* cadenaDinamica(const char * cadena)
 	return dinamica;
 }
 
+
+char mayuscula(char caracter)
+{
+	if( caracter>='a' && caracter<='z')
+		return caracter-32;
+	return caracter;
+}
+
 int strcmpIC(char *cadA,char *cadB)
 {
 	int i;

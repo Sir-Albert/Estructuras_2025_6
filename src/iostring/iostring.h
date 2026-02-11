@@ -17,7 +17,7 @@ int inputCadenaDinamica(char *mensaje,char **cadena,int max);
 char* cadenaDinamica(const char * cadena);
 
 //COMPARACION DE CADENAS INSESITIVE CASE
-int strcmpIC(char *cadA,char *cadB)
+int strcmpIC(char *cadA,char *cadB);
 
 
 #endif
