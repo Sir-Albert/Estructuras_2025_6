@@ -4,11 +4,11 @@
 
 #include <stdlib.h>
 
-typedef struct nodo
+typedef struct nodod
 {
 	void *dato;
-	struct nodo *sig;
-	struct nodo *ant;
+	struct nodod *sig;
+	struct nodod *ant;
 }NodoD;
 
 NodoD* crearNodoD(void *dato);

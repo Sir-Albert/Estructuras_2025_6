@@ -6,6 +6,7 @@
 typedef struct nodo
 {
 	void *dato;
+	void *dato2;
 	struct nodo *sig;
 	
 }Nodo;

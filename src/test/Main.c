@@ -1,24 +1,23 @@
 #include <stdio.h>
 #include "../iostring/iostring.h"
 #include "../structures/lista/lista.h"
+#include "../structures/listadoble/listadoble.h"
 #include "Alumno.h"
 
 int main()
 {
 	Alumno *a,*b,*c;
+	printf("\n HOLA MUNDO");
 	a = crearAlumno();
 	b = crearAlumno();
 	c = crearAlumno();
 	
-	Lista lista = {NULL,NULL,0,imprimirAlumno,compararNombre,free};
-	agregarEnOrden(&lista,a);
-	agregarEnOrden(&lista,b);
-	agregarEnOrden(&lista,c);
-	imprimirLista(lista);
-	
-	getchar();
-	reordenar( &lista ,compararPromedio );
-	imprimirLista(lista);
+	ListaD lista = {NULL,NULL,0,imprimirAlumno,compararNombre,free};
+	insertarFinalD(&lista,a);
+	insertarFinalD(&lista,b);
+	insertarFinalD(&lista,c);
+	imprimirListaDIF(lista);
+	imprimirListaDFI(lista);
 	
 
 	return 0;
