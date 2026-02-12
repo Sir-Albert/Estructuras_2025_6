@@ -15,7 +15,6 @@ typedef struct
 }ListaD;
 
 //IMPLEMENTADAS
-ListaD inicializarListaD(void);
 void imprimirListaDIF(ListaD lista);
 void imprimirListaDFI(ListaD lista);
 void insertarFinalD(ListaD*,void*);
@@ -24,14 +23,19 @@ void borrarInicioD(ListaD *lista);
 void borrarListaD(ListaD *);
 
 //NO IMPLEMENTADAS
-void borrarDatoD(ListaD *lista,void* dato,int  (*)(void*,void*));
-void* buscarDatoD(ListaD lista,void *dato,int  (*)(void*,void*));
-void reordenarD(ListaD *,int  (*)(void*,void*) );
-void insertarOrdenadoD(ListaD *lista,void* dato);
-void insertarInicioD(ListaD *lista,void* dato);
-void insertarEnPosicionD(ListaD *lista,void* dato,int pos);
-void eliminarEnPosicionD(ListaD *lista,int pos);
-
+ListaD inicializarListaD(void);
+//BUSCAR
+NodoD* buscarDatoD(ListaD lista,void *dato);
+NodoD* buscarDatoEspecificoD(ListaD lista,void *dato,int (*comparar)(void*,void*));
+//INSERTAR
+void insertEnOrdenD(ListaD *lista,void *dato);
+void insertarInicioD(ListaD*,void*);
+int insertarEn( ListaD * lista, void *dato,int index);
+//ELIMINAR
+int borrarEnD( ListaD *lista, int index);
+void borrarFinD(ListaD *lista);
+void borrarDatoD(ListaD *lista,void *dato);
+void reordenar(ListaD *lista, int (*comparar)(void*,void*));
 
 
 #endif

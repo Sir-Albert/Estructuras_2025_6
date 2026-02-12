@@ -18,6 +18,10 @@ int main()
 	insertarFinalD(&lista,c);
 	imprimirListaDIF(lista);
 	imprimirListaDFI(lista);
+	borrarInicioD(&lista);
+	imprimirListaDFI(lista);
+	borrarListaD(&lista);
+	imprimirListaDFI(lista);
 	
 
 	return 0;
