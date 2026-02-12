@@ -20,7 +20,7 @@ void imprimirListaDIF(ListaD lista);
 void imprimirListaDFI(ListaD lista);
 void insertarFinalD(ListaD*,void*);
 
-void borrarInicioD(ListaD *lista)
+void borrarInicioD(ListaD *lista);
 void borrarListaD(ListaD *);
 
 //NO IMPLEMENTADAS
