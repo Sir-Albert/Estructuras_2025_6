@@ -20,8 +20,10 @@ void imprimirListaDIF(ListaD lista);
 void imprimirListaDFI(ListaD lista);
 void insertarFinalD(ListaD*,void*);
 
-//NO IMPLEMENTADAS
+void borrarInicioD(ListaD *lista)
 void borrarListaD(ListaD *);
+
+//NO IMPLEMENTADAS
 void borrarDatoD(ListaD *lista,void* dato,int  (*)(void*,void*));
 void* buscarDatoD(ListaD lista,void *dato,int  (*)(void*,void*));
 void reordenarD(ListaD *,int  (*)(void*,void*) );
