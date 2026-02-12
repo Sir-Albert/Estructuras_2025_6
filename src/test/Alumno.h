@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "../iostring/iostring.h"
+#include <iostring.h>
 
 #define LEN 64
 
