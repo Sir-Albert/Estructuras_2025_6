@@ -1,4 +1,4 @@
-cflags = -Wall -Werror -pedantic -std=c99 -O2 -c
+cflags = -Wall -Werror -std=c99 -O2 -c
 source = $(wildcard *.c)
 
 

@@ -4,9 +4,9 @@ Alumno* crearAlumno(void)
 {
 	Alumno *nuevo = calloc(1,sizeof(Alumno));
 	inputEnteroSinSigno("\n Matricula: ",&nuevo->matricula);
-	inputCadena("\n Nombre: ",nuevo->nombre,LEN);
-	inputEntero("\n Semetres: ",&nuevo->semestre);
-	inputFloat("\n Promedio: ",&nuevo->promedio);
+	inputCadena(" Nombre: ",nuevo->nombre,LEN);
+	inputEntero(" Semetres: ",&nuevo->semestre);
+	inputFloat(" Promedio: ",&nuevo->promedio);
 	return nuevo;	
 }
 

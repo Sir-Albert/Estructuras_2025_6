@@ -1,6 +1,6 @@
-cflags = -Wall -Werror -pedantic -std=c99 -O2
-dflags = -Wall -Werror -pedantic -std=c99 -g
-includes = -I ../src/iostring -I ../src/structures/lista -I ../src/structures/lista -I ../src/structures/listadoble
+cflags = -Wall -Werror -std=c99 -O2
+dflags = -Wall -Werror -std=c99 -g
+includes = -I ../iostring -I ../structures/lista -I ../structures/lista -I ../structures/listadoble
 libs = ../../lib -liostring -lLista -lListaDoble
 source = $(wildcard *.c) 
 output = ../../bin/test

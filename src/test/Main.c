@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "../iostring/iostring.h"
-#include "../structures/lista/lista.h"
-#include "../structures/listadoble/listadoble.h"
+#include <iostring.h>
+#include <lista.h>
+#include <listadoble.h>
 #include "Alumno.h"
 
 int main()

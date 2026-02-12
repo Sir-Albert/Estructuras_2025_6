@@ -30,12 +30,12 @@ NodoD* buscarDatoEspecificoD(ListaD lista,void *dato,int (*comparar)(void*,void*
 //INSERTAR
 void insertEnOrdenD(ListaD *lista,void *dato);
 void insertarInicioD(ListaD*,void*);
-int insertarEn( ListaD * lista, void *dato,int index);
+int insertarEnD( ListaD * lista, void *dato,int index);
 //ELIMINAR
 int borrarEnD( ListaD *lista, int index);
 void borrarFinD(ListaD *lista);
 void borrarDatoD(ListaD *lista,void *dato);
-void reordenar(ListaD *lista, int (*comparar)(void*,void*));
+void reordenarD(ListaD *lista, int (*comparar)(void*,void*));
 
 
 #endif
