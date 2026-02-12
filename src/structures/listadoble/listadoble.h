@@ -14,13 +14,13 @@ typedef struct
 	void (*liberar)(void *datoA);
 }ListaD;
 
+//IMPLEMENTADAS
 ListaD inicializarListaD(void);
 void imprimirListaDIF(ListaD lista);
 void imprimirListaDFI(ListaD lista);
 void insertarFinalD(ListaD*,void*);
 
-
-
+//NO IMPLEMENTADAS
 void borrarListaD(ListaD *);
 void borrarDatoD(ListaD *lista,void* dato,int  (*)(void*,void*));
 void* buscarDatoD(ListaD lista,void *dato,int  (*)(void*,void*));

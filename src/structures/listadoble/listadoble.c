@@ -52,3 +52,37 @@ void imprimirListaDFI(ListaD lista)
 }
 
 
+
+void borrarInicioD(ListaD *lista)
+{
+	NodoD *aux;
+	if(!lista->inicio)
+		return;	
+	aux = lista->inicio;
+	//UNICO NODO
+	if( lista->inicio == lista->fin)
+	{
+		lista->inicio = lista->fin = NULL;
+	}	
+	//MINIMO 2
+	else
+	{
+		lista->inicio = aux->sig;
+		lista->inicio->ant = NULL;
+		
+	}
+	if(lista->liberar)
+		lista->liberar( aux->dato);
+	free(aux);	
+	lista->cant--;	
+}
+
+void borrarListaD(ListaD *lista)
+{
+	while(lista->inicio)
+	{
+		borrarInicioD(lista);
+	}	
+}
+
+
