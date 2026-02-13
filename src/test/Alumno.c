@@ -10,9 +10,6 @@ Alumno* crearAlumno(void)
 	return nuevo;	
 }
 
-
-
-
 void imprimirAlumno(void *dato)
 {
 	Alumno *alumno = dato;

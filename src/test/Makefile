@@ -12,5 +12,6 @@ rebuild:
 	make -C ..\iostring
 	make -C ..\structures\nodos
 	make -C ..\structures\lista
+	make -C ..\structures\listadoble
 	gcc $(cflags) $(source) -o $(output) $(includes) -L $(libs)
 	@echo "Compilo Exitosamente!!!"

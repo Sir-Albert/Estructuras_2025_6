@@ -7,10 +7,11 @@
 int main()
 {
 	Alumno *a,*b,*c;
-	printf("\n HOLA MUNDO");
 	a = crearAlumno();
 	b = crearAlumno();
 	c = crearAlumno();
+	
+	
 	
 	ListaD lista = {NULL,NULL,0,imprimirAlumno,compararNombre,free};
 	insertarFinalD(&lista,a);
