@@ -2,6 +2,7 @@
 #include <iostring.h>
 #include <lista.h>
 #include <listadoble.h>
+#include <pila.h>
 #include "Alumno.h"
 
 int main()
