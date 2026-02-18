@@ -29,7 +29,7 @@ void pushDato(Pila *pila,void *dato)
 void* popDato(Pila *pila)
 {
 	void *dato = NULL;
-	if(!pilaVacia(*pila))
+	if(pilaVacia(*pila))
 	{
 		printf("UNDERFLOW");
 		return dato;	
@@ -58,7 +58,7 @@ void pushNodo(Pila *pila,Nodo *nodo)
 Nodo* popNodo(Pila *pila)
 {
 	Nodo *cimaVieja = NULL;
-	if(!pilaVacia(*pila))
+	if(pilaVacia(*pila))
 	{
 		printf("UNDERFLOW");
 		return cimaVieja;	
@@ -70,18 +70,45 @@ Nodo* popNodo(Pila *pila)
 	return cimaVieja;
 }
 
-
 //VACIAR/ELIMINAR PILA
 void vaciarPila(Pila *pila)
 {
-	
+	while(!pilaVacia(*pila))
+	{
+		popDato(pila);
+	}
 }
+
 void eliminarPila(Pila *pila)
 {
-	
+	while(!pilaVacia(*pila))
+	{
+		void * dato = popDato(pila);
+		if(pila->liberar)
+			pila->liberar(dato);
+	}	
 }
-//IMPRIMIR
+
+
+//IMPRIMIR RESPETAR LIFO
 void imprimirPila(Pila pila)
-{
-	
-}
+{	
+	Pila aux = {NULL,0,-1,NULL,NULL};	
+	printf("\n [%d]PILA:",pila.cantidad);
+	//IMPRIMIR CIMAS ORIGINAL
+	//REMOVER LOS NODOS DE LA ORIGINAL
+	//PASARLOS A LA AUX
+	while(!pilaVacia(pila))
+	{
+		printf("\n");
+		pila.imprimir( pila.cima->dato);
+		pushNodo( &aux , popNodo(&pila) );
+	}	
+	//RESTAURAR
+	//REMOVER LOS NODOS DE LA AUX
+	//PASARLOS A LA ORIGINAL
+	while( !pilaVacia(aux))
+	{
+		pushNodo( &pila , popNodo(&aux) );
+	}	
+	}

@@ -5,26 +5,24 @@
 #include <pila.h>
 #include "Alumno.h"
 
+void imprimirEntero(void *dato);
+
+
 int main()
 {
-	Alumno *a,*b,*c;
-	a = crearAlumno();
-	b = crearAlumno();
-	c = crearAlumno();
+	Pila pila = {NULL,0,-1,imprimirEntero,NULL};
+	int arreglo[6] = {1,5,4,3,5,9};
+	for(int i=0; i<6;i++)
+		pushDato(&pila,&arreglo[i]);
 	
-	
-	
-	ListaD lista = {NULL,NULL,0,imprimirAlumno,compararNombre,free};
-	insertarFinalD(&lista,a);
-	insertarFinalD(&lista,b);
-	insertarFinalD(&lista,c);
-	imprimirListaDIF(lista);
-	imprimirListaDFI(lista);
-	borrarInicioD(&lista);
-	imprimirListaDFI(lista);
-	borrarListaD(&lista);
-	imprimirListaDFI(lista);
+	imprimirPila(pila);
 	
 
 	return 0;
+}
+
+void imprimirEntero(void *dato)
+{
+	int *datoA = dato;
+	printf(" %d",*datoA);
 }
