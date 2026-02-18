@@ -16,7 +16,7 @@ void pushDato(Pila *pila,void *dato)
 {
 	if(pilaLlena(*pila))
 	{
-		printf("OVERFLOW");
+		printf("\nOVERFLOW");
 		return;
 	}
 	Nodo *nuevaCima = crearNodo(dato);
@@ -31,7 +31,7 @@ void* popDato(Pila *pila)
 	void *dato = NULL;
 	if(pilaVacia(*pila))
 	{
-		printf("UNDERFLOW");
+		printf("\nUNDERFLOW");
 		return dato;	
 	}
 	Nodo *cimaVieja = pila->cima;
@@ -47,7 +47,7 @@ void pushNodo(Pila *pila,Nodo *nodo)
 {
 	if(pilaLlena(*pila))
 	{
-		printf("OVERFLOW");
+		printf("\nOVERFLOW");
 		return;
 	}
 	nodo->sig = pila->cima;	
@@ -60,7 +60,7 @@ Nodo* popNodo(Pila *pila)
 	Nodo *cimaVieja = NULL;
 	if(pilaVacia(*pila))
 	{
-		printf("UNDERFLOW");
+		printf("\nUNDERFLOW");
 		return cimaVieja;	
 	}
 	cimaVieja = pila->cima;

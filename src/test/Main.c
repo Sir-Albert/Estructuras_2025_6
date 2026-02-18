@@ -10,7 +10,7 @@ void imprimirEntero(void *dato);
 
 int main()
 {
-	Pila pila = {NULL,0,-1,imprimirEntero,NULL};
+	Pila pila = {NULL,0,4,imprimirEntero,NULL};
 	int arreglo[6] = {1,5,4,3,5,9};
 	for(int i=0; i<6;i++)
 		pushDato(&pila,&arreglo[i]);
