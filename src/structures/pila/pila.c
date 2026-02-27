@@ -1,5 +1,14 @@
 #include "pila.h"
 
+
+void* peekPila(Pila pila)
+{
+	if(pilaVacia(pila))
+		return NULL;
+	else
+		return pila.cima->dato;
+}
+
 //VERIFICIACION
 int pilaVacia(Pila pila)
 {
