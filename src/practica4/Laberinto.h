@@ -39,6 +39,7 @@ void imprimirCoordenada(void *dato);
 
 //FUNCIONES DE MOVIMIENTOS
 Movimientos movimientosPosibles(Laberinto lab,Coordenada punto);
+int bloqueado(Movimientos mov);
 void imprimirMovimientos(Movimientos movimientos);
 
 #endif

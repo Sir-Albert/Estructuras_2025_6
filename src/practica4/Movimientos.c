@@ -38,3 +38,8 @@ void imprimirMovimientos(Movimientos movimientos)
 	
 }
 
+
+int bloqueado(Movimientos mov)
+{
+	return mov.up == 0 && mov.up == mov.down && mov.up==mov.left && mov.up==mov.right;
+}
