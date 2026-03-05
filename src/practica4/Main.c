@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pila.h>
+#include <iostring.h>
 #include "Laberinto.h"
 
 
@@ -11,8 +12,17 @@ int main(void)
     Laberinto lab = crear_laberinto();
 	Coordenada *punto;
 	//Movimientos mov;
-	Coordenada origen = {1,1};
+	Coordenada origen = {1,1}; 
 	Coordenada destino = {25,24};
+	unsigned int nuevasCoor = 0;	
+	inputEnteroSinSigno("\n Nuevas coordenadas? (1:SI 0:NO) : ",&nuevasCoor);
+	if(nuevasCoor)
+	{
+		inputEntero("\n Captura Origen X: ",&origen.x);
+		inputEntero(" Captura Origen Y: ",&origen.y);
+		inputEntero("\n Captura Destino X: ",&destino.x);
+		inputEntero(" Captura Destino Y: ",&destino.y);
+	}
 	setOrigen(lab,origen);
 	setDestino(lab,destino);
 	imprimirLab(lab);
