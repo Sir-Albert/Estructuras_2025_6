@@ -13,6 +13,7 @@ int compararEntero(void*,void*);
 void imprimirEntero(void*);
 void imprimirResultado(Resultado resultado);
 
+void imprimirMitades(int *arreglo,int longitud);
 void myprintf(char *msg,char *formato,...);
 
 int main(void)
@@ -44,7 +45,26 @@ int main(void)
 	
 	eliminarArbol(&arbol);
 	printf("\n\n FIN DE PROGRAMA\n");
+	
+	
+	int arreglo[9] = {1,4,5,6,7,8,9,10,11};
+	imprimirMitades(arreglo,9);
+	
+	
 	return 0;
+}
+
+
+void imprimirMitades(int *arreglo,int longitud)
+{
+	if(longitud <= 0)
+		return;
+	int mitad = longitud/2;
+	printf(" %d", arreglo[mitad]);
+	//IZQUIERDA
+	imprimirMitades(arreglo,mitad);
+	//DERECHA
+	imprimirMitades(arreglo+mitad+1,longitud-1-mitad);	
 }
 
 

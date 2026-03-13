@@ -11,21 +11,22 @@ Resultado buscarNodoEnArbol(Arbol arbol,void *dato)
 		if(arbol.comparar(raiz->dato,dato) == 0)
 		{
 			result.nodo = raiz;
-			result.dato = raiz->dato;
-			if(result.padre && result.padre->izq==raiz)
-				result.rama = IZQUIERDA;
-			else if(result.padre && result.padre->dch==raiz)
-				result.rama = DERECHA;
-	
+			result.dato = raiz->dato;	
 			break;
 		}
 		else
 		{ 
 			result.padre = raiz;
-			if(arbol.comparar(raiz->dato,dato) > 0 )
-				raiz = raiz->izq;			
+			if(raiz->izq && arbol.comparar(raiz->dato,dato) > 0 )
+			{
+				result.rama = IZQUIERDA;
+				raiz = raiz->izq;		
+			}				
 			else
+			{
+				result.rama = DERECHA;
 				raiz = raiz->dch;
+			}
 		}
 	}
 	return result;
