@@ -13,7 +13,8 @@ int compararEntero(void*,void*);
 void imprimirEntero(void*);
 void imprimirResultado(Resultado resultado);
 
-void imprimirMitades(int *arreglo,int longitud);
+void extraerMitades(int *arr1,int *arr2,int longitud,int *i);
+
 void myprintf(char *msg,char *formato,...);
 
 int main(void)
@@ -47,24 +48,32 @@ int main(void)
 	printf("\n\n FIN DE PROGRAMA\n");
 	
 	
-	int arreglo[9] = {1,4,5,6,7,8,9,10,11};
-	imprimirMitades(arreglo,9);
-	
+	int arr1[9] = {1,4,5,6,7,8,9,10,11};
+	int arr2[9];
+	int i = 0;
+	extraerMitades(arr1,arr2,9,&i);
+	printf("\n");
+	for(i = 0;i<9;i++)
+	{
+		printf(" %d",arr2[i]);
+	}
 	
 	return 0;
 }
 
 
-void imprimirMitades(int *arreglo,int longitud)
+void extraerMitades(int *arr1,int *arr2,int longitud,int *i)
 {
 	if(longitud <= 0)
 		return;
 	int mitad = longitud/2;
-	printf(" %d", arreglo[mitad]);
+	//EXTRAER MITAD
+	arr2[*i] = arr1[mitad];
+	(*i)++;
 	//IZQUIERDA
-	imprimirMitades(arreglo,mitad);
+	imprimirMitades(arr1,mitad);
 	//DERECHA
-	imprimirMitades(arreglo+mitad+1,longitud-1-mitad);	
+	imprimirMitades(arr1+mitad+1,longitud-1-mitad);	
 }
 
 
