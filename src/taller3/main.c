@@ -71,9 +71,9 @@ void extraerMitades(int *arr1,int *arr2,int longitud,int *i)
 	arr2[*i] = arr1[mitad];
 	(*i)++;
 	//IZQUIERDA
-	imprimirMitades(arr1,mitad);
+	extraerMitades(arr1,mitad);
 	//DERECHA
-	imprimirMitades(arr1+mitad+1,longitud-1-mitad);	
+	extraerMitades(arr1+mitad+1,longitud-1-mitad);	
 }
 
 
