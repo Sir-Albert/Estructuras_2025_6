@@ -11,6 +11,7 @@
 int* crearEntero(int);
 int compararEntero(void*,void*);
 void imprimirEntero(void*);
+void imprimirResultado(Resultado resultado);
 
 void myprintf(char *msg,char *formato,...);
 
@@ -28,27 +29,41 @@ int main(void)
 	insertarArbol(&arbol, crearEntero(11));
 	insertarArbol(&arbol, crearEntero(7));
 	insertarArbol(&arbol, crearEntero(6));
-	insertarArbol(&arbol, crearEntero(5));
-	insertarArbol(&arbol, crearEntero(10));
-	insertarArbol(&arbol, crearEntero(12));
-	insertarArbol(&arbol, crearEntero(9));
-	insertarArbol(&arbol, crearEntero(1));
-	insertarArbol(&arbol, crearEntero(1));
-	insertarArbol(&arbol, crearEntero(1));
-	insertarArbol(&arbol, crearEntero(1));
-	insertarArbol(&arbol, crearEntero(1));
-	insertarArbol(&arbol, crearEntero(1));
-	insertarArbol(&arbol, crearEntero(1));
-	insertarArbol(&arbol, crearEntero(1));
-	insertarArbol(&arbol, crearEntero(0));
 	
 	printf("\n");
-	imprimirArbol(arbol);	
-	//myprintf("Hola","dcfx",1);
+	imprimirArbol(arbol);		
+	
+	int valor =11;
+	void *dato = buscarEnArbol(arbol,&valor);
+	if(dato)
+		printf("\n ENCONTRADO");
+	else
+		printf("\n NO ENCONTRADO");
+	
+	imprimirResultado(buscarNodoEnArbol(arbol,&valor));
 	
 	eliminarArbol(&arbol);
 	printf("\n\n FIN DE PROGRAMA\n");
 	return 0;
+}
+
+
+void imprimirResultado(Resultado resultado)
+{
+	if(resultado.nodo)
+	{
+		if(resultado.padre)
+		{
+			printf("\n PADRE: ");
+			imprimirEntero(resultado.padre->dato);
+			printf("\n RAMA: %s",
+			(resultado.rama) ? "DERECHA":"IZQUIERDA");
+		}
+		printf("\n Nodo: ");
+		imprimirEntero(resultado.nodo->dato);
+	}
+	else
+		printf("\n NODO NO ENCONTRADO");
 }
 
 

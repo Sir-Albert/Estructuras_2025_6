@@ -1,6 +1,74 @@
 #include "arbol.h"
 
 
+
+Resultado buscarNodoEnArbol(Arbol arbol,void *dato)
+{
+	Resultado result = {NULL,NULL,NULL,DERECHA};
+	NodoA *raiz = arbol.raiz;	
+	while(raiz)
+	{
+		if(arbol.comparar(raiz->dato,dato) == 0)
+		{
+			result.nodo = raiz;
+			result.dato = raiz->dato;
+			if(result.padre && result.padre->izq==raiz)
+				result.rama = IZQUIERDA;
+			else if(result.padre && result.padre->dch==raiz)
+				result.rama = DERECHA;
+	
+			break;
+		}
+		else
+		{ 
+			result.padre = raiz;
+			if(arbol.comparar(raiz->dato,dato) > 0 )
+				raiz = raiz->izq;			
+			else
+				raiz = raiz->dch;
+		}
+	}
+	return result;
+}	
+	
+
+void* buscarEnArbol(Arbol arbol,void *dato)
+{
+	void *result = NULL;
+	NodoA *raiz = arbol.raiz;
+	
+	while(raiz)
+	{
+		if(arbol.comparar(raiz->dato,dato) == 0)
+		{
+			result = raiz->dato;
+			break;
+		}
+		else if(arbol.comparar(raiz->dato,dato) > 0 )
+			raiz = raiz->izq;
+		else
+			raiz = raiz->dch;
+	}
+	return result;
+}	
+
+void invertirRamas(NodoA *raiz)
+{
+	if(!raiz)
+		return;
+	NodoA *aux = raiz->izq;
+	raiz->izq = raiz->dch;
+	raiz->dch = aux;
+	invertirRamas(raiz->izq);
+	invertirRamas(raiz->dch);
+}
+
+void invertirArbol(Arbol *arbol)
+{
+	invertirRamas(arbol->raiz);
+}
+
+
 void insertarArbolOrdenado(NodoA *raiz,void *dato,int (*comparar)(void*,void*))
 {
 	if(comparar(dato,raiz->dato)<=0)
@@ -161,4 +229,5 @@ void eliminarArbol(Arbol *arbol)
 	arbol->raiz = NULL;
 	arbol->cantidad = 0;
 }
+
 

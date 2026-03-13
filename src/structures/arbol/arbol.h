@@ -28,7 +28,9 @@ typedef struct
 	void (*liberar)(void*);
 }Arbol;
 
-
+Resultado buscarNodoEnArbol(Arbol arbol,void *dato);
+void* buscarEnArbol(Arbol arbol,void *dato);
+void invertirArbol(Arbol *arbol);
 void eliminarArbol(Arbol *arbol);
 void insertarArbol(Arbol *arbol,void *dato);
 void imprimirArbol(Arbol arbol);
