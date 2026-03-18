@@ -11,6 +11,7 @@
 int* crearEntero(int);
 int compararEntero(void*,void*);
 void imprimirEntero(void*);
+void imprimirNodo(void*);
 void imprimirResultado(Resultado resultado);
 
 void extraerMitades(int *arr1,int *arr2,int longitud,int *i);
@@ -26,14 +27,24 @@ int main(void)
 	arbol.comparar = &compararEntero;
 	arbol.liberar = &free;
 	
-	insertarArbol(&arbol, crearEntero(9));
-	insertarArbol(&arbol, crearEntero(8));
-	insertarArbol(&arbol, crearEntero(11));
 	insertarArbol(&arbol, crearEntero(7));
+	insertarArbol(&arbol, crearEntero(4));
+	insertarArbol(&arbol, crearEntero(2));
+	insertarArbol(&arbol, crearEntero(8));
+	insertarArbol(&arbol, crearEntero(9));
 	insertarArbol(&arbol, crearEntero(6));
+	insertarArbol(&arbol, crearEntero(1));
+	insertarArbol(&arbol, crearEntero(5));
+	
 	
 	printf("\n");
-	imprimirArbol(arbol);		
+	imprimirArbol(arbol);
+
+	printf("\n");	
+	imprimirOrden(arbol,ORDEN);
+	
+	printf("\n");
+	ordenIterativo(arbol.raiz,imprimirNodo);
 	
 	int valor =11;
 	void *dato = buscarEnArbol(arbol,&valor);
@@ -115,6 +126,12 @@ void imprimirEntero(void *a)
 {
 	int *aa=a;
 	printf("%d",*aa);
+}
+
+void imprimirNodo(void *a)
+{
+	NodoA *aa=a;
+	imprimirEntero(aa->dato);
 }
 
 

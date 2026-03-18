@@ -3,6 +3,7 @@
 
 #include "../nodos/nodoarbol.h"
 #include <stdio.h>
+#include <pila.h>
 
 #define PREORDEN 1
 #define ORDEN 2
@@ -36,4 +37,5 @@ void insertarArbol(Arbol *arbol,void *dato);
 void imprimirArbol(Arbol arbol);
 void imprimirOrden(Arbol arbol,int opcion);
 
+void ordenIterativo(NodoA *raiz,void (*imprimir)(void*));
 #endif
