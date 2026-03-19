@@ -171,37 +171,6 @@ void orden(NodoA *raiz,void (*imprimir)(void*))
 }
 
 
-void ordenIterativo(NodoA *raiz,void (*imprimir)(void*))
-{
-	Pila pila = {NULL,0,-1,imprimir,NULL};
-	if(!raiz)
-		return;
-	
-	pushDato(&pila,raiz);
-	/*
-	while( !pilaVacia(pila))
-	{	
-		aux = (NodoA*)popDato(&pila);	
-		if(aux->dch)
-			pushDato(&pila,aux->dch);		
-		pushDato(&pila,aux);
-		if(aux->izq) 
-			pushDato(&pila,aux->izq);
-		
-		imprimirPila(pila);
-		getchar();
-	}	*/
-	vaciarPila(&pila);
-}
-
-
-
-
-
-
-
-
-
 void inverso(NodoA *raiz,void (*imprimir)(void*))
 {
 	if(!raiz)

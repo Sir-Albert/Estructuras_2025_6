@@ -8,6 +8,7 @@
 #include <iostring.h>
 #include <arbol.h>
 
+void abortar(void);
 int* crearEntero(int);
 int compararEntero(void*,void*);
 void imprimirEntero(void*);
@@ -17,6 +18,8 @@ void imprimirResultado(Resultado resultado);
 void extraerMitades(int *arr1,int *arr2,int longitud,int *i);
 
 void myprintf(char *msg,char *formato,...);
+
+void ordenIterativo(NodoA *raiz,void (*imprimir)(void*));
 
 int main(void)
 {
@@ -72,6 +75,34 @@ int main(void)
 	return 0;
 }
 
+
+void ordenIterativo(NodoA *raiz,void (*imprimir)(void*))
+{
+	Pila pila = {NULL,0,-1,imprimir,NULL};
+	if(!raiz)
+		return;
+	NodoA* aux = raiz;
+	while( aux || !pilaVacia(pila))
+	{			
+		while(aux)
+		{
+			pushDato(&pila,aux);	
+			aux = aux->izq;
+		}		
+		aux = popDato(&pila);
+		imprimir(aux);		
+		printf(" ");		
+		aux= aux->dch;
+	}	
+	vaciarPila(&pila);
+}
+
+void abortar(void)
+{
+	char c = 'e';
+	if( (c=getchar()) == 'e')
+		exit(0);
+}
 
 void extraerMitades(int *arr1,int *arr2,int longitud,int *i)
 {

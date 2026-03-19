@@ -37,5 +37,4 @@ void insertarArbol(Arbol *arbol,void *dato);
 void imprimirArbol(Arbol arbol);
 void imprimirOrden(Arbol arbol,int opcion);
 
-void ordenIterativo(NodoA *raiz,void (*imprimir)(void*));
 #endif
