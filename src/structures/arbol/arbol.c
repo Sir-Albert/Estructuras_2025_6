@@ -233,3 +233,11 @@ void eliminarArbol(Arbol *arbol)
 }
 
 
+void vaciarArbol(Arbol *arbol)
+{
+	eliminar_NodosA( arbol->raiz,NULL);
+	arbol->raiz = NULL;
+	arbol->cantidad = 0;
+}
+
+
