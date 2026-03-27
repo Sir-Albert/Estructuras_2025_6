@@ -26,7 +26,7 @@ void imprimirEntero(void*);
 void imprimirNodo(void*);
 void imprimirResultado(Resultado resultado);
 
-void asignarMemoria(NodoA **original,NodoA **valores,int cantidad,int (*comparar)(void*,void*));
+void asignarMemoria(NodoA **original,int cantidad,int (*comparar)(void*,void*));
 
 char* crearChar(char);
 int compararChar(void*,void*);
@@ -100,27 +100,19 @@ void imprimirDoubleDouble(void *ptr)
 }
 
 
-void asignarMemoria(NodoA **original,NodoA **valores,int cantidad,int (*comparar)(void*,void*))
+void asignarMemoria(NodoA **original,int cantidad,int (*comparar)(void*,void*))
 {
 	
 	printf("\n INICIALIZANDO INDICES %d",cantidad);
-	char *indices = NULL,*aux=NULL;	
-	while(!aux)
-	{
-		aux = realloc(indices,cantidad*sizeof(char));
-		printf("No se pudo asignar memoria");
-	}
-	indices = aux;
-	printf("\n INDICES INICIALIZADOS");
-	for(int k = 0;k<cantidad;k++)
-		indices[k] =-1;
+	char *indices =calloc(cantidad,sizeof(char));
+	
 	for(int j = 0;j<cantidad;j++)
 	{	
 		if(indices[j] !=-1)
 			continue;			
-		if((*(char*)original[j]->dato)=='^')
+		if(   ((Variable*)(original[j]->dato))->c=='^')
 		{
-			valores[j]->dato = NULL;
+			((Variable*)(original[j]->dato))->v = NULL;
 			continue;		
 		}	
 		
@@ -134,7 +126,7 @@ void asignarMemoria(NodoA **original,NodoA **valores,int cantidad,int (*comparar
 		{
 			if(indices[k] ==j)
 			{
-				valores[k]->dato = ptr;
+				((Variable*)(original[k]->dato))->v  = ptr;
 				printf("\n ASIGNADO");
 			}
 		}		
@@ -146,12 +138,8 @@ void evaluar(Arbol arbol)
 	NodoA **arrOrigin = calloc(arbol.cantidad,sizeof(NodoA*));
 	int cantidad = 0;
 	extraerNodos(arbol.raiz,arrOrigin,&cantidad);
+	asignarMemoria(arrOrigin,cantidad,arbol.comparar);
 	
-	int *indices = malloc( cantidad * sizeof(double));
-	printf("adASD");
-	for(int k = 0;k<cantidad;k++)
-		indices[k] =-1;
-	printf("\n MEMORIA ASIGNADA");
 	abort();
 	/*
 	for(int j = 0;j<i;j++)
