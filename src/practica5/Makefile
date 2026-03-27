@@ -9,8 +9,6 @@ build :
 	gcc $(cflags) $(source) -o $(output) $(includes) -L $(libs)
 	@echo "Compilo Exitosamente!!!"
 rebuild:
-	make -C ..\iostring
-	make -C ..\structures\nodos
 	make -C ..\structures\arbol
 	gcc $(cflags) $(source) -o $(output) $(includes) -L $(libs)
 	@echo "Compilo Exitosamente!!!"
