@@ -18,11 +18,13 @@ int main(void)
 {
 	Arbol arbol;
 	arbol.raiz = NULL;
-	arbol.cantidad = 7;
 	arbol.imprimir = &imprimirVariable;
 	arbol.comparar = &compararVariable;
 	arbol.liberar = &free;
 	
+	
+	//NOTA
+	arbol.cantidad = 7; // <<-- ACTUALIZAR ESTE VALOR SI SE CREA MANUALMENTE EL ARBOL	
 	arbol.raiz = crearNodoA(crearVariable('^'));	
 	arbol.raiz->izq = crearNodoA(crearVariable('X'));	
 	arbol.raiz->dch = crearNodoA(crearVariable('^'));	
