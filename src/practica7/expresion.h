@@ -4,12 +4,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <arbol.h>
+#include <iostring.h>
 
 #include "variable.h"
 
 
-void evaluar(Arbol arbol);
+double evaluar(Arbol arbol);
 void extraerNodos(NodoA *raiz,NodoA **nodos,int *i);
 void asignarMemoria(NodoA **original,int cantidad,int (*comparar)(void*,void*));
-
+void capturarValores(NodoA **original,int cantidad);
+void liberarMemoriaValores(NodoA **original,int cantidad);
 #endif

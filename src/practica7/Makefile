@@ -1,4 +1,4 @@
-cflags = -Wall -Werror -std=c99 -O2
+cflags = -Wall -Werror -std=c99 -O2 
 dflags = -Wall -Werror -std=c99 -g
 includes = -I ../iostring -I ../structures/nodos -I ../structures/arbol -I ../structures/pila
 libs = ../../lib -liostring -lArbol -lPila

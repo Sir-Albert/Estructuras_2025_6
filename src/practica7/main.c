@@ -18,23 +18,18 @@ int main(void)
 {
 	Arbol arbol;
 	arbol.raiz = NULL;
-	arbol.cantidad = 3;
+	arbol.cantidad = 7;
 	arbol.imprimir = &imprimirVariable;
 	arbol.comparar = &compararVariable;
 	arbol.liberar = &free;
-	
-	
-	/*
-	arbol.raiz = crearNodoA(crearChar('^'));	
-	arbol.raiz->izq = crearNodoA(crearChar('X'));	
-	arbol.raiz->dch = crearNodoA(crearChar('X'));
-	*/
 	
 	arbol.raiz = crearNodoA(crearVariable('^'));	
 	arbol.raiz->izq = crearNodoA(crearVariable('X'));	
 	arbol.raiz->dch = crearNodoA(crearVariable('^'));	
 	arbol.raiz->dch->izq = crearNodoA(crearVariable('X'));	
-	arbol.raiz->dch->dch = crearNodoA(crearVariable('X'));	
+	arbol.raiz->dch->dch = crearNodoA(crearVariable('^'));	
+	arbol.raiz->dch->dch->izq = crearNodoA(crearVariable('X'));	
+	arbol.raiz->dch->dch->dch = crearNodoA(crearVariable('Y'));	
 	
 	printf("\n ARBOL\n");
 	imprimirArbol(arbol);

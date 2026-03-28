@@ -23,3 +23,38 @@ void imprimirVariable(void *a)
 {
 	printf("%c",((Variable*)a)->c);
 }
+
+void imprimirValor(void *a)
+{
+	if( ((Variable*)a)->v )
+		printf("%lf",**((Variable*)a)->v);
+	else
+		printf("null");
+}
+
+
+int precedencia(void *a)
+{
+	char c = ((Variable*)a)->c;
+	switch(c)
+	{
+		case '+':case '-':
+			return 1;
+		case '*':case '/':
+			return 2;			
+		case '^':
+			return 3;			
+		case '(':
+			return -1;
+	}
+	return 0;
+}
+
+int compararPrecedencia(void *a,void *b)
+{
+	if( precedencia(a)>precedencia(b) )
+		return 1;
+	else if( precedencia(a)<precedencia(b) )
+		return -1;
+	else return 0;
+}
