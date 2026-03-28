@@ -1,17 +1,11 @@
 #include "variable.h"
 
-
-
-
 Variable* crearVariable(char c)
 {
 	Variable* nuevo=calloc(1,sizeof(Variable));
 	nuevo->c=c;
 	return nuevo;
 }
-
-
-
 
 int compararVariable(void *a,void *b)
 {
@@ -23,12 +17,7 @@ int compararVariable(void *a,void *b)
 		return -1;
 	else 
 		return 1;
-	
 }
-
-
-
-
 
 void imprimirVariable(void *a)
 {

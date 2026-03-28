@@ -1,9 +1,5 @@
 #include "expresion.h"
 
-
-
-
-
 void evaluar(Arbol arbol)
 {
 	NodoA **arrOrigin = calloc(arbol.cantidad,sizeof(NodoA*));
@@ -19,15 +15,15 @@ void evaluar(Arbol arbol)
 	
 	exit(1);
 	/*
-	for(int j = 0;j<i;j++)
+	for(int i = 0;i<cantidad;i++)
 	{		
-		if((*(char*)arrOrigin[j]->dato)=='^')
+		if((*(char*)arrOrigin[i]->dato)=='^')
 			continue;
-		if(  *(double**)arrOrigin[j]->dato == NULL )
+		if(  *(double**)arrOrigin[i]->dato == NULL )
 		{
-			*(double**)arrOrigin[j]->dato = calloc(1,sizeof(double));
-			printf("\n Captura variable %c: ", (*(char*)arrOrigin[j]->dato)) ;
-			inputDouble("",*(double**)arrClon[j]->dato);
+			*(double**)arrOrigin[i]->dato = calloc(1,sizeof(double));
+			printf("\n Captura variable %c: ", (*(char*)arrOrigin[i]->dato)) ;
+			inputDouble("",*(double**)arrClon[i]->dato);
 		}	
 	}
 	*/
@@ -38,7 +34,6 @@ void extraerNodos(NodoA *raiz,NodoA **nodos,int *i)
 	if(!raiz)
 		return;
 	extraerNodos(raiz->izq,nodos,i);
-	//imprimir(raiz->dato);
 	nodos[*i] = raiz;
 	(*i)++;
 	extraerNodos(raiz->dch,nodos,i);	
@@ -48,7 +43,7 @@ void asignarMemoria(NodoA **original,int cantidad,int (*comparar)(void*,void*))
 {
 	
 	printf("\n INICIALIZANDO INDICES %d",cantidad);
-	int *indices = calloc(cantidad,sizeof(int));	
+	int *indices = (int*)calloc(cantidad,sizeof(int));	
 	if(!indices)
 	{
 		printf("\n NO SE PUDO ASIGNAR EL ARREGLO DE INDICES");
