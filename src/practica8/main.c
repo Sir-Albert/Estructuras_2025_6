@@ -30,6 +30,16 @@ int main(void)
 	heap.tipo = HEAP_MAX;
 	heapify(&heap);
 	imprimirHeap(heap);
+	
+	while(heap.cantidad)
+	{
+		printf("\n Cantidad:  %d",heap.cantidad);
+		void *dato = eliminarHeap(&heap);
+		printf("\n Dato eliminado: ");
+		imprimirEntero(dato);
+		free(dato);
+	}
+
 
 
 	printf("\n\n FIN DE PROGRAMA\n");

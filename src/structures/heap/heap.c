@@ -31,6 +31,13 @@ void* eliminarHeap(Heap *heap)
 	if(!heap->cantidad)
 		return dato;
 	dato = heap->datos[0];
+	if(heap->cantidad == 1)		
+	{
+		free(heap->datos);
+		heap->datos = NULL;
+		heap->cantidad--;
+		return dato;
+	}
 	heap->datos[0] = heap->datos[heap->cantidad-1];
 	void **aux = NULL;
 	while(!aux)
