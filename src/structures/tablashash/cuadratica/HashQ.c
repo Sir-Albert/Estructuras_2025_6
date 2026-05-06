@@ -21,7 +21,7 @@ int fn_insertKey(HashQTable *hashtable,void *data)
 	{
 		hashtable->table[index] = data;
 		hashtable->cant++;
-		printf("\n K: %d",k);
+		if(hashtable->verbose)printf("\n K: %d",k);
 		return 1;
 	}
 	else
@@ -37,7 +37,7 @@ int fn_insertKey(HashQTable *hashtable,void *data)
 		}		
 		hashtable->table[n_index] = data;
 		hashtable->cant++;
-		printf("\n K: %d",k);
+		if(hashtable->verbose)printf("\n K: %d",k);
 		return 1;		
 	}	
 }
@@ -55,7 +55,7 @@ void* fn_searchKey(HashQTable *hashtable,void *data)
 	
 	if( hashtable->comparar(dataTable,data) == 0 )
 	{	
-		printf("\n K: %d",k);
+		if(hashtable->verbose)printf("\n K: %d",k);
 		return dataTable;	
 	}
 	
@@ -69,7 +69,7 @@ void* fn_searchKey(HashQTable *hashtable,void *data)
 		{
 			if( hashtable->comparar(dataTable,data) == 0)
 			{
-				printf("\n K: %d",k);
+				if(hashtable->verbose)printf("\n K: %d",k);
 				return dataTable;	
 			}			
 			k += 1;

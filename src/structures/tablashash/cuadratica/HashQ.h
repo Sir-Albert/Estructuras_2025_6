@@ -16,6 +16,7 @@ typedef struct
 	fn_imprimir imprimir;
 	fn_folding folding;
 	fn_comparar comparar;
+	int verbose;
 }HashQTable;
 
 int fn_hashQ(HashQTable hashtable,int key);
