@@ -17,12 +17,15 @@ typedef struct
 	fn_folding folding;
 	fn_comparar comparar;
 	int verbose;
+	int min,max,fixed;
 }HashQTable;
 
 int fn_hashQ(HashQTable hashtable,int key);
 int fn_rehashQ(HashQTable hashtable,int index,int k);
 int fn_insertKey(HashQTable *hashtable,void *data);
 void* fn_searchKey(HashQTable *hashtable,void *data);
+void* fn_deleteKey(HashQTable *hashtable,void *data);
+void remap(HashQTable *hashtable);
 
 
 

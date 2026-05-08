@@ -17,9 +17,12 @@ char** datos(void);
 int main(void)
 {
 	HashQTable tablahash;
-	tablahash.table = calloc(9999,sizeof(void*));
-	tablahash.len = 9999;
+	tablahash.table = calloc(1000,sizeof(void*));
+	tablahash.len = 1000;
 	tablahash.cant = 0;
+	tablahash.min = 30;
+	tablahash.max = 70;
+	tablahash.fixed = (tablahash.min+tablahash.max)/2;
 	tablahash.folding = folding;
 	tablahash.imprimir = imprimir;
 	tablahash.comparar = (fn_comparar)strcmp;
@@ -35,9 +38,34 @@ int main(void)
 	char *res = (char*)fn_searchKey(&tablahash,estedato);
 	printf("\n ENCONTRADO: %s", res);
 	
+	printf("\n TABLA [%d]",tablahash.len);
 	for(int i = 0 ; i < tablahash.len; i++)
 	{
-		if(1 || tablahash.table[i]!=NULL)
+		if(tablahash.table[i]!=NULL)
+		{
+			printf("\n [%d] ",i);
+			tablahash.imprimir(tablahash.table[i]);
+		}
+	}
+	
+	printf("\n ELIMINADO: %s",(char*)fn_deleteKey(&tablahash,estedato));
+	
+	
+	
+	
+	printf("\n REMAP");
+	
+	tablahash.verbose = 0;
+	remap(&tablahash);
+	printf("\n FINREMAP");
+	
+	tablahash.verbose = 1;
+	res = (char*)fn_searchKey(&tablahash,estedato);
+	printf("\n ENCONTRADO: %s", res);
+	printf("\n TABLA REMAP [%d]",tablahash.len);
+	for(int i = 0 ; i < tablahash.len; i++)
+	{
+		if(tablahash.table[i]!=NULL)
 		{
 			printf("\n [%d] ",i);
 			tablahash.imprimir(tablahash.table[i]);
