@@ -5,6 +5,7 @@
 
 #include <iostring.h>
 #include <HashQ.h>
+#include "Libro.h"
 
 
 int folding(void *);
@@ -72,6 +73,15 @@ int main(void)
 		}
 	}
 	
+	
+	
+	Acervo acervo = obtener_libros();
+	
+	for(int i = 0; i < acervo.cantidad ; i++)
+	{
+		printf("\n");
+		imprimirLibro(acervo.libros+i);
+	}
 
 
 	printf("\n\n FIN DE PROGRAMA\n");
